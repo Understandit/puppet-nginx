@@ -112,10 +112,8 @@ class nginx::config {
   $worker_rlimit_nofile           = $::nginx::worker_rlimit_nofile
   $ssl_protocols                  = $::nginx::ssl_protocols
   $ssl_ciphers                    = $::nginx::ssl_ciphers
-
-  # Non-configurable settings
-  $conf_template                  = 'nginx/conf.d/nginx.conf.erb'
-  $proxy_conf_template            = undef
+  $conf_template                  = $::nginx::conf_template
+  $proxy_conf_template            = $::nginx::proxy_conf_template
 
   File {
     owner => $global_owner,
